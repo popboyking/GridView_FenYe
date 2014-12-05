@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:id="@+id/cartleft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="120dp"
+            android:layout_height="170dp">
+            <!--商品图片-->
+            <ImageView
+                android:id="@+id/medicineImage"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_margin="5px"/>
+            <TextView android:id="@+id/mname"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/medicineImage"
+                android:text="你妹啊"
+                android:textSize="25px" />
+            <TextView android:id="@+id/mprice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="25px"
+                android:text="价格"
+                android:textColor="@color/red"
+                android:layout_below="@+id/mname"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="bottom|right"
+                android:background="@drawable/add2cartimage"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_toRightOf="@+id/medicineImage"
+                android:layout_toEndOf="@+id/medicineImage"
+                android:layout_alignTop="@+id/mname" />
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

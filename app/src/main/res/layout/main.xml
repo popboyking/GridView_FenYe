@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>  
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"  
+    android:orientation="vertical"   
+    android:layout_width="fill_parent"  
+    android:layout_height="fill_parent"  
+    >  
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="仿淘宝聚划算"/>
+    <RelativeLayout
+        android:id="@+id/myView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        <org.justontheway.gridview_fenye.ScrollLayout
+              xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/ScrollLayoutTest"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent">
+        </org.justontheway.gridview_fenye.ScrollLayout>
+        <org.justontheway.gridview_fenye.PageControlView
+               android:id="@+id/pageControl"
+               android:layout_width="fill_parent"
+               android:layout_height="40px"
+               android:layout_alignParentBottom="true"
+               android:gravity="center"/>
+    </RelativeLayout>
+</LinearLayout>  
