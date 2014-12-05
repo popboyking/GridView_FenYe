@@ -20,7 +20,7 @@ import org.justontheway.gridview_fenye.R;
 public class AppAdapter extends BaseAdapter {
     private List<Map> mList;
     private Context mContext;
-    public static final int APP_PAGE_SIZE = 8;
+    public static final int APP_PAGE_SIZE = 25;
     private PackageManager pm;
 
     public AppAdapter(Context context, List<Map> list, int page) {

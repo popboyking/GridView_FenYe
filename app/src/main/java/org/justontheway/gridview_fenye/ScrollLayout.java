@@ -59,7 +59,6 @@ public class ScrollLayout extends ViewGroup {
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
 
-        System.out.println("===============onLayout开始================");
         // TODO Auto-generated method stub
         int childLeft = 0;
         final int childCount = getChildCount();
@@ -68,19 +67,15 @@ public class ScrollLayout extends ViewGroup {
             final View childView = getChildAt(i);
             if (childView.getVisibility() != View.GONE) {
                 final int childWidth = childView.getMeasuredWidth();
-                System.out.println("childWidth = "+childWidth);
-                System.out.println("childLeft = "+childLeft);
                 childView.layout(childLeft, 0, childLeft + childWidth,
                         childView.getMeasuredHeight());
                 childLeft += childWidth;
             }
         }
-        System.out.println("===============onLayout结束================");
     }
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        System.out.println("===============onMeasure开始================");
         Log.e(TAG, "onMeasure");
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         final int width = MeasureSpec.getSize(widthMeasureSpec);
@@ -104,7 +99,6 @@ public class ScrollLayout extends ViewGroup {
         }
         System.out.println("moving to screen " + mCurScreen);
         scrollTo(mCurScreen * width, 0);
-        System.out.println("===============onMeasure结束================");
     }
 
     /**
@@ -113,9 +107,7 @@ public class ScrollLayout extends ViewGroup {
      */
     public void snapToDestination() {
         final int screenWidth = getWidth();
-        System.out.println("screenWidth = "+screenWidth);
         final int destScreen = (getScrollX() + screenWidth / 2) / screenWidth;
-        System.out.println("destScreen = "+destScreen);
         snapToScreen(destScreen);
     }
 
@@ -143,21 +135,15 @@ public class ScrollLayout extends ViewGroup {
 
     @Override
     public void computeScroll() {
-        System.out.println("===============computeScroll开始================");
         // TODO Auto-generated method stub
         if (mScroller.computeScrollOffset()) {
-            System.out.println("mScroller.getCurrX() = "+mScroller.getCurrX());
-            System.out.println("mScroller.getCurrY() = "+mScroller.getCurrY());
             scrollTo(mScroller.getCurrX(), mScroller.getCurrY());
             postInvalidate();
         }
-        System.out.println("===============computeScroll结束================");
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        // TODO Auto-generated method stub
-        System.out.println("===============onTouchEvent开始================");
 
         if (mVelocityTracker == null) {
             mVelocityTracker = VelocityTracker.obtain();
@@ -223,13 +209,11 @@ public class ScrollLayout extends ViewGroup {
                 mTouchState = TOUCH_STATE_REST;
                 break;
         }
-        System.out.println("===============onTouchEvent结束================");
         return true;
     }
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
-        System.out.println("===============onInterceptTouchEvent开始================");
         // TODO Auto-generated method stub
         Log.e(TAG, "onInterceptTouchEvent-slop:" + mTouchSlop);
 
@@ -263,7 +247,6 @@ public class ScrollLayout extends ViewGroup {
                 mTouchState = TOUCH_STATE_REST;
                 break;
         }
-        System.out.println("===============onInterceptTouchEvent结束================");
         return mTouchState != TOUCH_STATE_REST;
     }
 

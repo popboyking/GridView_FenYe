@@ -28,7 +28,7 @@ import org.justontheway.gridview_fenye.ScrollLayout.OnScreenChangeListenerDataLo
  */
 public class AllAppList extends Activity {
     private ScrollLayout mScrollLayout;
-    private static final float APP_PAGE_SIZE = 8.0f;
+    private static final float APP_PAGE_SIZE = 25.0f;
     private Context mContext;
     private PageControlView pageControl;
     public MyHandler myHandler;
@@ -122,7 +122,7 @@ public class AllAppList extends Activity {
             if ("1".equals(rmsg)) {
                 // do nothing
                 List<Map> list = new ArrayList<Map>();
-                for(int i =0;i<19;i++){
+                for(int i =0;i<100;i++){
                     n++;
                     Map map = new HashMap();
                     map.put("mname", n+"商品");
@@ -135,7 +135,7 @@ public class AllAppList extends Activity {
                     GridView appPage = new GridView(mContext);
                     // get the "i" page data
                     appPage.setAdapter(new AppAdapter(mContext, list, i));
-                    appPage.setNumColumns(2);
+                    appPage.setNumColumns(5);
                     appPage.setOnItemClickListener(listener);
                     mScrollLayout.addView(appPage);
                 }
